@@ -1,10 +1,12 @@
 package com.github.mamadaliev;
 
-import static java.lang.System.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
     public static void main(String[] args) {
+        // ---- initial data ----
         Node<String> node1 = new Node<>();
         Node<String> node2 = new Node<>();
         Node<String> node3 = new Node<>();
@@ -29,12 +31,16 @@ public class Main {
 
         node6.value = "6";
 
-        // ----
-
         LinkedList<String> list = new LinkedList<>();
 
+        // ---- calculation ----
         Result<String> result = list.getMiddleValue(node1, new Result<>(), 0);
 
-        out.println(result.node.value);
+        // --- output ----
+        Logger log = Logger.getLogger(Main.class.getName());
+
+        log.log(Level.INFO, "Success: {0}", result.isFound);
+        log.log(Level.INFO, "Size: {0}", result.size);
+        log.log(Level.INFO, "Value: {0}", result.node.value);
     }
 }

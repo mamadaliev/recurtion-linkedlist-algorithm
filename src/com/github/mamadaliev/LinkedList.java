@@ -11,10 +11,7 @@ public class LinkedList<T> {
             result.node = node;
             return result;
         }
-        if (result.isFound) {
-            return result;
-        }
-
+        if (result.isFound) return result;
         if (result.size / 2 == index) {
             result.isFound = true;
             result.node = node;
